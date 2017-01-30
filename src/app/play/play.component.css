@@ -6,6 +6,7 @@ div	{
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
+	border: 1px solid rgb(187, 187, 187);
 }
 .col {
 	flex: 1;
@@ -16,6 +17,7 @@ div	{
 	text-align: center;
 	font-size: 35px;
 	padding-top: 10px;
+	border: 1px solid rgb(187, 187, 187);
 }
 
 .free-space {
