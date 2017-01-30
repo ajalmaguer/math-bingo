@@ -18,11 +18,13 @@ export class LocalStorageService {
 	}
 
 	pickFact() {
-		let randomIndex = Math.floor(this.data.facts.length* Math.random())
-		let pickedFact = this.data.facts.splice(randomIndex, 1)
-		this.data.pickedFacts.push(pickedFact)
-		this.saveData()
-		return pickedFact
+		if (this.data.facts.length > 0) {
+			let randomIndex = Math.floor(this.data.facts.length* Math.random())
+			let pickedFact = this.data.facts.splice(randomIndex, 1)[0]
+			this.data.pickedFacts.push(pickedFact)
+			this.saveData()
+			return pickedFact
+		}
 	}
 
 	getNewBingoCard() {

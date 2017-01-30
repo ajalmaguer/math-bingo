@@ -20,7 +20,6 @@ export class HostComponent implements OnInit {
 	}
 
 	pick() {
-		console.log('pick')
 		this.currentFact = this.dataService.pickFact()
 	}
 

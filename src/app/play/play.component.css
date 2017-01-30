@@ -1,5 +1,5 @@
 div	{
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 
 .flex-grid {
@@ -24,4 +24,5 @@ div	{
 
 .selected {
 	background-color: #1976D2;
+	color: #fff;
 }

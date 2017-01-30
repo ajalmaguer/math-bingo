@@ -11,6 +11,8 @@ import { PlayComponent } from './play/play.component';
 import { HostComponent } from './host/host.component';
 import { HomeComponent } from './home/home.component';
 import { TileDirective } from './play/tile.directive';
+import { FactComponent } from './host/fact/fact.component';
+import { ModalModule } from 'ng2-modal'
 
 @NgModule({
 	declarations: [
@@ -20,12 +22,14 @@ import { TileDirective } from './play/tile.directive';
 		HostComponent,
 		HomeComponent,
 		TileDirective,
+		FactComponent,
 	],
 	imports: [
 		AppRoutingModule,
 		BrowserModule,
 		FormsModule,
-		HttpModule
+		HttpModule,
+		ModalModule,
 	],
 	providers: [
 		LocalStorageService

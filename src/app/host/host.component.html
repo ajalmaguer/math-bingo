@@ -1,43 +1,50 @@
 
 <div class="row  text-center">
 	<div class="col-xs-12">
-		<button (click)="pick()">Pick</button>
-		<button (click)="reset()">Reset</button>
+		<button (click)="pick()" class="btn btn-primary">Pick</button>
+		<button (click)="resetConfirm.open()" class="btn btn-danger">Reset</button>
 		<div>
-			<span *ngIf="!currentFact">Pick a fact</span>
-			<span *ngIf="currentFact">{{currentFact.factors | json}}</span>
+			<h2 *ngIf="!currentFact">Pick a fact</h2>
+			<div *ngIf="currentFact">
+				<h2>
+					{{currentFact.column}} 
+				</h2>
+				<h1>
+					{{currentFact.factors[0]}} x
+					{{currentFact.factors[1]}} 
+				</h1>
+			</div>
 		</div>
-	</div>
-	<div class="col-xs-12">
-		To play, go to: <a [href]="getPlayUrl(true)" target="_blank">{{getPlayUrl()}}</a>
 	</div>
 </div>
 
 <br>
 
-<div class="flex-grid">
+<div class="flex-grid text-center">
 	<div class="col">
 		<div>B</div>
-		
+		<mb-fact *ngFor="let fact of dataService.data.pickedFacts" [fact]="fact" column="B"></mb-fact>
 	</div>
 	<div class="col">
 		<div>I</div>
-		
+		<mb-fact *ngFor="let fact of dataService.data.pickedFacts" [fact]="fact" column="I"></mb-fact>
 	</div>
 	<div class="col">
 		<div>N</div>
-		
+		<mb-fact *ngFor="let fact of dataService.data.pickedFacts" [fact]="fact" column="N"></mb-fact>
 	</div>
 	<div class="col">
 		<div>G</div>
-		
+		<mb-fact *ngFor="let fact of dataService.data.pickedFacts" [fact]="fact" column="G"></mb-fact>
 	</div>
 	<div class="col">
 		<div>O</div>
-		
+		<mb-fact *ngFor="let fact of dataService.data.pickedFacts" [fact]="fact" column="O"></mb-fact>
 	</div>
 </div>
 
+
+<!-- 
 <pre>
 	{{dataService.data.pickedFacts.length}}
 	{{dataService.data.pickedFacts | json}}
@@ -46,5 +53,26 @@
 <pre>
 	{{dataService.data.facts.length}}
 	{{dataService.data.facts | json}}
-</pre>
+</pre> -->
 
+
+
+<modal  #resetConfirm
+		title="Warning!"
+		cancelButtonLabel="Cancel"
+		[hideCloseButton]="false"
+		[closeOnEscape]="true"
+		[closeOnOutsideClick]="true">
+
+	<modal-header>
+	</modal-header>
+
+	<modal-content>
+		Are you sure you want to reset the game? You will lose history of all the picked numbers.
+	</modal-content>
+
+	<modal-footer>
+		<button class="btn btn-danger" (click)="reset(); resetConfirm.close();">Reset</button>
+	</modal-footer>
+
+</modal>

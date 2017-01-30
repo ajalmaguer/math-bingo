@@ -1,6 +1,3 @@
-
-<button (click)="generateCard()">Generate Card</button>
-
 <div class="flex-grid">
 	<div class="col">
 		<div>B</div>
@@ -36,7 +33,33 @@
 	</div>
 </div>
 
+<br>
+<br>
 
-<pre>
+<div class="text-center">
+	<button class="btn btn-danger" (click)="newCardConfirm.open()">New Card</button>
+</div>
+
+<modal  #newCardConfirm
+		title="Warning!"
+		cancelButtonLabel="Cancel"
+		[hideCloseButton]="false"
+		[closeOnEscape]="true"
+		[closeOnOutsideClick]="true">
+
+	<modal-header>
+	</modal-header>
+
+	<modal-content>
+		Are you sure you want to generate a new card? You will lose your current card.
+	</modal-content>
+
+	<modal-footer>
+		<button class="btn btn-danger" (click)="generateCard(); newCardConfirm.close();">New Card</button>
+	</modal-footer>
+
+</modal>
+
+<!-- <pre>
 	{{bingoCard | json}}
-</pre>
+</pre> -->
