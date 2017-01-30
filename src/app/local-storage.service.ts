@@ -38,11 +38,9 @@ export class LocalStorageService {
 
 	loadData() {
 		var localStorageData = this.getItem('data')
-		// console.log('localStorageData =', localStorageData)
 		if (localStorageData != null) {
 			this.data = localStorageData
 		}
-		// console.log('this.data=', this.data)
 	}
 
 	setItem(key: string, value: any) {
