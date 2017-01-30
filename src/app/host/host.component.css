@@ -10,3 +10,11 @@ div	{
 .col {
 	flex: 1;
 }
+
+.col > div:first-child {
+	border-bottom: 2px solid #FAFAFA; 
+}
+
+.pickedFacts {
+	font-size: 20px;
+}
