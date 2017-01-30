@@ -11,6 +11,19 @@ export class LocalStorageService {
 	showedAlert: boolean = false
 
 	constructor() { }
+	
+	resetFacts() {
+		this.data.facts = JSON.parse(JSON.stringify(multiplicationFacts)) 
+		this.data.pickedFacts = []
+	}
+
+	pickFact() {
+		let randomIndex = Math.floor(this.data.facts.length* Math.random())
+		let pickedFact = this.data.facts.splice(randomIndex, 1)
+		this.data.pickedFacts.push(pickedFact)
+		this.saveData()
+		return pickedFact
+	}
 
 	getNewBingoCard() {
 		this.data.bingoCard = { B: [], I: [], N: [], G: [], O: [] }

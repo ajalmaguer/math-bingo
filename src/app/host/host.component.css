@@ -1,0 +1,12 @@
+div	{
+	border: 1px solid red;
+}
+
+.flex-grid {
+	display: flex;
+ 	margin-left: auto;
+ 	margin-right: auto;
+}
+.col {
+	flex: 1;
+}

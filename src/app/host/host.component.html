@@ -1,3 +1,50 @@
-<p>
-  host works!
-</p>
+
+<div class="row  text-center">
+	<div class="col-xs-12">
+		<button (click)="pick()">Pick</button>
+		<button (click)="reset()">Reset</button>
+		<div>
+			<span *ngIf="!currentFact">Pick a fact</span>
+			<span *ngIf="currentFact">{{currentFact.factors | json}}</span>
+		</div>
+	</div>
+	<div class="col-xs-12">
+		To play, go to: <a [href]="getPlayUrl(true)" target="_blank">{{getPlayUrl()}}</a>
+	</div>
+</div>
+
+<br>
+
+<div class="flex-grid">
+	<div class="col">
+		<div>B</div>
+		
+	</div>
+	<div class="col">
+		<div>I</div>
+		
+	</div>
+	<div class="col">
+		<div>N</div>
+		
+	</div>
+	<div class="col">
+		<div>G</div>
+		
+	</div>
+	<div class="col">
+		<div>O</div>
+		
+	</div>
+</div>
+
+<pre>
+	{{dataService.data.pickedFacts.length}}
+	{{dataService.data.pickedFacts | json}}
+</pre>
+
+<pre>
+	{{dataService.data.facts.length}}
+	{{dataService.data.facts | json}}
+</pre>
+
