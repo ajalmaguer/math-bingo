@@ -43,7 +43,8 @@ export class PlayComponent implements OnInit {
 
 	sortFacts() {
 		if (!this.dataService.data.facts) return false
-		this.dataService.data.facts.forEach(fact => {
+		let facts = this.dataService.getMathFacts()
+		facts.forEach(fact => {
 			let column = fact.column
 			if (this.sortedFacts.hasOwnProperty(column)) {
 				this.sortedFacts[column].push(fact)

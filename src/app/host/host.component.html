@@ -2,7 +2,6 @@
 <div class="row  text-center">
 	<div class="col-xs-12">
 		<button (click)="pick()" class="btn btn-primary">Pick</button>
-		<button (click)="resetConfirm.open()" class="btn btn-danger">Reset</button>
 		<div>
 			<h2 *ngIf="!currentFact && (dataService.data.facts.length > 0)">
 				Pick a fact
@@ -46,6 +45,15 @@
 		<div>O</div>
 		<mb-fact *ngFor="let fact of dataService.data.pickedFacts" [fact]="fact" column="O"></mb-fact>
 	</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="text-center">
+	<button (click)="resetConfirm.open()" class="btn btn-danger">Reset</button>	
 </div>
 
 

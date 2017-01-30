@@ -3,9 +3,10 @@ import { multiplicationFacts } from './mathFacts'
 
 @Injectable()
 export class LocalStorageService {
+	localStorageKey: string = 'mathBingoData'
 	data: any = {
 		bingoCard: {B: [], I:[], N: [], G: [], O: []},
-		facts: multiplicationFacts,
+		facts: this.getMathFacts(),
 		pickedFacts: []
 	}
 	showedAlert: boolean = false
@@ -13,7 +14,7 @@ export class LocalStorageService {
 	constructor() { }
 	
 	resetFacts() {
-		this.data.facts = JSON.parse(JSON.stringify(multiplicationFacts)) 
+		this.data.facts = this.getMathFacts()
 		this.data.pickedFacts = []
 	}
 
@@ -32,12 +33,16 @@ export class LocalStorageService {
 		return this.data.bingoCard
 	}
 
+	getMathFacts() {
+		return JSON.parse(JSON.stringify(multiplicationFacts))
+	}
+
 	saveData() {
-		this.setItem('data', this.data)
+		this.setItem(this.localStorageKey, this.data)
 	}
 
 	loadData() {
-		var localStorageData = this.getItem('data')
+		var localStorageData = this.getItem(this.localStorageKey)
 		if (localStorageData != null) {
 			this.data = localStorageData
 		}
