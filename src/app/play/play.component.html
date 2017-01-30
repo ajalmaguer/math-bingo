@@ -14,8 +14,8 @@
 	<div class="col">
 		<div>N</div>
 		<div *ngFor="let tile of bingoCard.N; let i = index;" [mbTile]="tile" [class.selected]="tile.selected">
-			<span *ngIf="i == 2" class="free-space">Free Space</span>
-			<span *ngIf="i != 2">{{tile.answer}}</span>
+			<p *ngIf="i == 2" class="free-space">Free Space</p>
+			<p *ngIf="i != 2">{{tile.answer}}</p>
 			
 		</div>
 	</div>
